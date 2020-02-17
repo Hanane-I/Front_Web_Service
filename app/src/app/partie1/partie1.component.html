@@ -1,0 +1,35 @@
+
+<div class="container">
+    <p>Bienvenu dans la premiere salle</p>
+    <img class="image" src="../../assets/img.jpg"/>
+</div>
+
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="column">
+        <canvas id="myCanvas" class="solide"></canvas>
+      </div>
+
+      <div class="column">
+        <p>Vous trouvez dans cette partie .....</p>
+        <input  type="text" />
+        <button type="button" class="btn btn-default" (click)="Next()">&raquo;</button>
+      </div>
+      <div class="column">
+          <h6>
+            Salut {{character.nom}} !    
+          </h6>
+          <ul style="list-style-type:disc;">
+            <li>PV = {{character.pv}}</li>
+            <li>F = {{character.force}} </li>
+            <li>Fuite = {{character.fuite}}</li>
+            <li>Dexterite = {{character.dexterite}}</li>
+            <li>Xp = {{character.xp}}</li>
+          </ul> 
+      </div>
+    </div>
+    
+  </div>
+</div>
