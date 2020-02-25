@@ -1,0 +1,88 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';  
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import {Character} from '../shared/character';
+import{RestApiService} from '../shared/rest-api.service';
+
+@Component({
+  selector: 'app-partie11',
+  templateUrl: './partie11.component.html',
+  styleUrls: ['./partie11.component.css']
+})
+export class Partie11Component implements OnInit {
+
+  constructor(private httpService: HttpClient, private router: Router, public restApi:RestApiService) { }
+
+  games: string[]; 
+  gameInfos: string[];
+  character: string[];
+  rooms: string[];
+  public taille: number;
+
+
+  ngOnInit() {
+    this.httpService.get('https://localhost:44344/api/game/character?id=12').subscribe(  
+      data => {  
+        this.games = data as string[];
+        this.gameInfos = data['gameinfos'];
+        this.character = this.gameInfos['character'];  
+        this.rooms = this.gameInfos['rooms'];
+        this.taille = this.rooms.length;
+      }  
+    );  
+
+    //Canevas pour Map
+    var canvas : any = document.getElementById("myCanvas");
+    if(canvas.getContext){
+      var ctx = canvas.getContext("2d");
+      var cercle = canvas.getContext("2d");
+      var porte = canvas.getContext("2d");
+      var x = 0;
+      var y = 0;
+      
+      //map
+      for(var i = 0; i < 2; i++) {
+        ctx.beginPath();
+        ctx.fillRect(x, y, 50, 50);
+        x = x + 50;
+        ctx.fillStyle = "";
+      }
+
+      var xCercle = 20;
+      var yCrrcle = 20;
+      //cercle
+      cercle.beginPath();
+      cercle.fillStyle="#FF4422"
+      cercle.arc(xCercle,yCrrcle,10,0,2*Math.PI);
+      cercle.fill();
+    }
+    
+  }
+
+  Avancer(): void{
+    this.router.navigate(['/partie12']);
+  }
+
+  Combattre(): void{
+    console.log("salut");
+    this.restApi.CombattreMonstre(this.character).subscribe((data:{}) => {
+      this.router.navigate(['/partie11'])
+    })
+    
+  }
+
+  Fuir(): void{
+    this.restApi.FuirPersonnage(this.character).subscribe((data:{}) => {
+      this.router.navigate(['/partie12'])
+    })
+  }
+
+  Ramasser(): void{
+    this.restApi.RamasserObjet(this.character).subscribe((data:{}) => {
+      this.router.navigate(['/partie11'])
+    })
+  }
+  
+
+}
