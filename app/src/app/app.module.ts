@@ -10,7 +10,10 @@ import { Partie1Component } from './partie1/partie1.component';
 import { DemarreComponent } from './demarre/demarre.component';
 import { AdminComponent } from './admin/admin.component';
 import {ListPartiesComponent} from './list-parties/list-parties.component';
-import { Partie11Component } from './partie11/partie11.component'
+import { Partie11Component } from './partie11/partie11.component';
+import { Partie12Component } from './partie12/partie12.component';
+import { Partie13Component } from './partie13/partie13.component';
+import { FinComponent } from './fin/fin.component'
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import { Partie11Component } from './partie11/partie11.component'
     AdminComponent,
     ListPartiesComponent,
     Partie11Component,
+    Partie12Component,
+    Partie13Component,
+    FinComponent,
   ],
   imports: [
     BrowserModule,

@@ -55,53 +55,34 @@ export class Partie1Component implements OnInit {
       cercle.fill();
     }
     
-    
-    
-    
-  
-    
-    /*
-    //Map
-    ctx.fillRect(0, 0, 50, 50);
-    ctx.fillRect(50, 0, 50, 50);
-    ctx.fillRect(100, 0, 50, 50);
-    ctx.fillRect(100, 50, 50, 50);
-    ctx.fillRect(150, 50, 50, 50);
-    ctx.fillRect(150, 100, 50, 50);
-
-    //Votre emplacement
-    cercle.beginPath();
-    cercle.fillStyle="#FF4422"
-    cercle.arc(20,20,10,0,2*Math.PI);
-    cercle.fill();
-
-    //porte
-    porte.lineWidth = 3 ;
-    porte.beginPath();
-    porte.strokeStyle = 'white'
-    //porte1
-    porte.moveTo(50, 0); 
-    porte.lineTo(50, 50);
-    //Porte2
-    porte.moveTo(100, 0); 
-    porte.lineTo(100, 50);
-    //Porte3
-    porte.moveTo(100, 50); 
-    porte.lineTo(150, 50);
-    //porte4
-    porte.moveTo(150, 50); 
-    porte.lineTo(150, 100);
-    //Porte5
-    porte.moveTo(150, 100); 
-    porte.lineTo(200, 100);
-    porte.stroke();
-    
-      */
-    
   }
 
-
-  Next(): void{
+  Avancer(): void{
     this.router.navigate(['/partie11']);
   }
+
+  Combattre(): void{
+    this.httpService.post('https://localhost:44344/api/game/12', function(res, req){
+      let newCharacter = {"id": 12, "name": req.body.name};
+      res.send(newCharacter);
+    });
+  }
+
+  Fuir(): void{
+    this.httpService.post('https://localhost:44344/api/game/12', function(res, req){
+      let newCharacter = {"id": 12, "name": req.body.name};
+      res.send(newCharacter);
+    });
+  }
+
+  Ramasser(): void{
+    this.httpService.post('https://localhost:44344/api/game/12', function(res, req){
+      let newCharacter = {"id": 12, "name": req.body.name};
+      res.send(newCharacter);
+    });
+  }
 }
+
+
+ 
+

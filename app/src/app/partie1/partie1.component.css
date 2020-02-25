@@ -6,6 +6,10 @@
     
 }
 
+button{
+    margin:3px;
+}
+
 
 .container{ 
     margin: auto; /* Important */ 
@@ -18,7 +22,7 @@ canvas.solide{
 
 .column {
     float: left;
-    width:33.33%;
+    width:33%;
     padding: 10px;
     height: 300px;
 }

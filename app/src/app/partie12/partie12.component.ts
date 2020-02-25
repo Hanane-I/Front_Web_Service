@@ -3,11 +3,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-partie11',
-  templateUrl: './partie11.component.html',
-  styleUrls: ['./partie11.component.css']
+  selector: 'app-partie12',
+  templateUrl: './partie12.component.html',
+  styleUrls: ['./partie12.component.css']
 })
-export class Partie11Component implements OnInit {
+export class Partie12Component implements OnInit {
 
   constructor(private httpService: HttpClient, private router: Router) { }
 
@@ -51,8 +51,7 @@ export class Partie11Component implements OnInit {
       cercle.arc(xCercle,yCrrcle,10,0,2*Math.PI);
       cercle.fill();
     }
-    
   }
-  
+
 
 }
